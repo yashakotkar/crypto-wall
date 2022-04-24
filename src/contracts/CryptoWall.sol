@@ -13,6 +13,7 @@ contract CryptoWall {
         string description;
         uint256 tipAmount;
         address payable author;
+        uint256 timestamp;
     }
 
     event PostCreated(
@@ -20,7 +21,8 @@ contract CryptoWall {
         string imageHash,
         string description,
         uint256 tipAmount,
-        address payable author
+        address payable author,
+        uint256 timestamp
     );
 
     event PostTipped(
@@ -28,7 +30,8 @@ contract CryptoWall {
         string imageHash,
         string description,
         uint256 tipAmount,
-        address payable author
+        address payable author,
+        uint256 timestamp
     );
 
     // Create Posts
@@ -45,11 +48,20 @@ contract CryptoWall {
         // Increment Count
         postCount++;
 
+        uint256 timestamp = now;
+
         // Add Image to contract
-        posts[postCount] = Post(postCount, _imgHash, _desc, 0, msg.sender);
+        posts[postCount] = Post(
+            postCount,
+            _imgHash,
+            _desc,
+            0,
+            msg.sender,
+            timestamp
+        );
 
         // Trigger an event
-        emit PostCreated(postCount, _imgHash, _desc, 0, msg.sender);
+        emit PostCreated(postCount, _imgHash, _desc, 0, msg.sender, timestamp);
     }
 
     // Tip Posts
@@ -76,7 +88,8 @@ contract CryptoWall {
             _post.imageHash,
             _post.description,
             _post.tipAmount,
-            _author
+            _author,
+            _post.timestamp
         );
     }
 }
