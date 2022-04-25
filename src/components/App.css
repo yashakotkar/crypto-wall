@@ -6,13 +6,11 @@
   --element: #bb86fc;
 }
 
-body {
+/* body {
   background-color: var(--background-primary);
   min-height: 100vh;
   color: var(--font-primary);
-}
-.App {
-}
+} */
 
 /* .App {
   text-align: center;

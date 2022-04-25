@@ -1,0 +1,14 @@
+.footer {
+    height: 2rem;
+    width: 100%;
+    background-color: var(--background-secondary);
+    box-sizing: border-box;
+    padding: 0 2rem;
+    color: var(--font-primary);
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
